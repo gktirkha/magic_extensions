@@ -43,7 +43,7 @@ extension MagicTimeExtension on TimeOfDay? {
   /// [format] specifies the format string used to format the [DateTime] object. Defaults to 'hh:mm a'.
   ///
   /// Returns the formatted time string or [placeHolder] if the [TimeOfDay] is null.
-  String format({String placeHolder = '', String format = 'hh:mm a'}) {
+  String convert({String placeHolder = '', String format = 'hh:mm a'}) {
     if (this == null) return placeHolder;
     DateTime now = DateTime.now();
     final DateTime dateTime =
