@@ -91,7 +91,7 @@ extension MagicNullStringExtension on String? {
         EdgeInsets.fromLTRB(leftMargin, topMargin, rightMargin, bottomMargin);
     String? textToShow = this ?? placeholder;
     if (kDebugMode &&
-        (textToShow == null || textToShow!.isEmpty) &&
+        (textToShow == null || textToShow.isEmpty) &&
         ipsumInDebug) textToShow = 'ipsum';
 
     if ((textToShow == null || textToShow.isEmpty) && !showPlaceholderIfEmpty) {
