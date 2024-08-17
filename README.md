@@ -13,7 +13,7 @@ To use magic_extensions in your Flutter project, add the following dependency to
 
 ```yaml
 dependencies:
-  read_more_text:
+  magic_extensions:
     git: https://github.com/gktirkha/magic_extensions
 ```
 
