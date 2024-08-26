@@ -16,3 +16,4 @@ export './src/magic_num_extension.dart';
 export './src/magic_status_colors.dart';
 export './src/magic_string_extension.dart';
 export './src/magic_time_extension.dart';
+export './src/magic_widget_extension.dart';
