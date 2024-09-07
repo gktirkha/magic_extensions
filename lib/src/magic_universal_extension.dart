@@ -1,6 +1,8 @@
 import 'dart:collection';
 import 'dart:developer';
 
+import 'magic_string_extension.dart';
+
 extension MagicUniversalExtension<T> on T? {
   /// Checks if the value is `null`.
   bool get isNull => this == null;
@@ -184,8 +186,12 @@ extension MagicUniversalExtension<T> on T? {
 
     if (this is String) {
       final str = (this as String).toLowerCase().trim();
-      if (str == 'true' || str == 'yes' || str == '1') return true;
-      if (str == 'false' || str == 'no' || str == '0') return false;
+      if (str == 'true' || str == 'yes' || str == '1' || str == 'y') {
+        return true;
+      }
+      if (str == 'false' || str == 'no' || str == '0' || str == 'no') {
+        return false;
+      }
       return str.isNotEmpty;
     }
 
@@ -221,8 +227,18 @@ extension MagicUniversalExtension<T> on T? {
   /// - [defaultValue]: The value to return if the conversion fails or the value is `null`.
   /// - [nonEmptyInDebug]: If `true`, returns 'Lorem Ipsum' when the `defaultValue` is empty and the app is in debug mode.
   String magicString({String defaultValue = '', bool nonEmptyInDebug = true}) {
-    if (isNull) return defaultValue;
-    if (this is String) return this as String;
+    if (isNull) {
+      return defaultValue.validString(
+        defaultValue: defaultValue,
+        nonEmptyInDebug: nonEmptyInDebug,
+      );
+    }
+    if (this is String) {
+      return (this as String).validString(
+        defaultValue: defaultValue,
+        nonEmptyInDebug: nonEmptyInDebug,
+      );
+    }
     if (this is num) return toString();
     if (this is bool) return (this as bool) ? 'true' : 'false';
     if (this is List) return (this as List).join(', ');
@@ -235,9 +251,10 @@ extension MagicUniversalExtension<T> on T? {
     if (this is Set) return (this as Set).join(', ');
     if (this is Queue) return (this as Queue).join(', ');
     if (this is DateTime) return (this as DateTime).toIso8601String();
-    return (defaultValue.isEmpty && nonEmptyInDebug)
-        ? 'Lorem Ipsum'
-        : defaultValue;
+    return defaultValue.validString(
+      defaultValue: defaultValue,
+      nonEmptyInDebug: nonEmptyInDebug,
+    );
   }
 
   /// Converts the value to a [List].

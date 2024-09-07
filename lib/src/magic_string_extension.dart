@@ -18,7 +18,9 @@ extension MagicNullStringExtension on String? {
   /// - If the string is not `null` or empty, the trimmed version of the string is returned.
   String validString({String defaultValue = '', bool nonEmptyInDebug = true}) {
     if (this == null || this!.trim().isEmpty) {
-      return (nonEmptyInDebug && kDebugMode) ? 'Lorem Ipsum' : defaultValue;
+      return (nonEmptyInDebug && kDebugMode)
+          ? 'Lorem Ipsum'
+          : defaultValue.trim();
     }
     return this!.trim();
   }
@@ -89,7 +91,8 @@ extension MagicNullStringExtension on String? {
     StrutStyle? strutStyle,
     TextDirection? textDirection,
     TextHeightBehavior? textHeightBehavior,
-    @Deprecated('This is a deprecated Argument') double? textScaleFactor,
+    @Deprecated('This is a deprecated Argument, use textScaleFactor instead')
+    double? textScaleFactor,
     TextWidthBasis? textWidthBasis,
     TextScaler? textScaler,
     double topMargin = 0.0,
@@ -158,7 +161,7 @@ extension MagicNullStringExtension on String? {
   /// Non-alphanumeric characters are removed before extracting initials.
   ///
   /// Returns an empty string if the [String] is empty or null.
-  String get extractInitials {
+  String get initials {
     if (this == null || this!.isEmpty) return '';
     String withoutSPC = this!.replaceAll(RegExp(r'[^\w\s]'), '');
     List<String> words = withoutSPC.trim().split(RegExp(r'\s+'));
@@ -169,6 +172,17 @@ extension MagicNullStringExtension on String? {
     }
     return initials.toUpperCase();
   }
+
+  /// Converts the nullable [String] to a list of strings split by [delimiter] (Default ,).
+  ///
+  /// Returns an empty list if the [String] is null or empty.
+  ///
+  /// Uses the [validString] method to handle null or empty strings before splitting
+  /// the resulting non-null string by commas.
+  ///
+  /// Returns a list of substrings obtained by splitting the [String] by commas.
+  List<String> toSeparatedList({String delimiter = ','}) =>
+      validString().split(delimiter);
 }
 
 /// Extension methods for non-nullable [String] objects.
