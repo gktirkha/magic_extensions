@@ -12,8 +12,10 @@ library magic_extensions;
 
 export './src/magic_date_extension.dart';
 export './src/magic_int_extension.dart';
+export './src/magic_iterable_extension.dart';
 export './src/magic_num_extension.dart';
 export './src/magic_status_colors.dart';
 export './src/magic_string_extension.dart';
 export './src/magic_time_extension.dart';
+export './src/magic_universal_extension.dart';
 export './src/magic_widget_extension.dart';

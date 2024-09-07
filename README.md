@@ -17,7 +17,7 @@ dependencies:
     git: https://github.com/gktirkha/magic_extensions
 ```
 
-> If you prefer, You may find the dart-doc version of the documentation [here](https://gktirkha.github.io/flutter_packages_doc/magic_extensions)
+> This Documentation Is Outdated and Does Not Contains Explanation Of All the methods and extensions please refer to [Dart Doc Version](https://gktirkha.github.io/flutter_packages_doc/magic_extensions)
 
 # Usage
 ## DateTime Extensions

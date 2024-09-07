@@ -10,6 +10,19 @@ extension MagicNullStringExtension on String? {
   /// Checks if the nullable [String] is neither null nor empty.
   bool get isNotNullAndNotEmpty => this != null && this!.isNotEmpty;
 
+  /// Returns a non-null, trimmed version of the string.
+  ///
+  /// - If the string is `null` or empty, the function returns:
+  ///   - `"Lorem Ipsum"` when in debug mode and `nonEmptyInDebug` is `true`.
+  ///   - The provided [defaultValue] in release mode or when `nonEmptyInDebug` is `false`.
+  /// - If the string is not `null` or empty, the trimmed version of the string is returned.
+  String validString({String defaultValue = '', bool nonEmptyInDebug = true}) {
+    if (this == null || this!.trim().isEmpty) {
+      return (nonEmptyInDebug && kDebugMode) ? 'Lorem Ipsum' : defaultValue;
+    }
+    return this!.trim();
+  }
+
   /// Adds a comma to the end of the [String].
   ///
   /// Returns an empty string if the [String] is null or empty.
@@ -229,10 +242,19 @@ extension MagicStringExtension on String {
     return DateFormat(format).format(dateTime);
   }
 
-  /// Converts an HTTP URL to HTTPS.
+  /// Converts a `String` URL from HTTP to HTTPS if it starts with 'http:'.
   ///
-  /// If the [String] starts with 'http:', it is replaced with 'https:'. Otherwise, the [String] remains unchanged.
-  String get toHttps {
+  /// If the URL starts with 'http:', it replaces 'http:' with 'https:'.
+  /// If the URL already starts with 'https:' or does not start with 'http:', it returns the URL as-is.
+  ///
+  /// - If the app is in debug mode and [ignoreInDebugMode] is `true`, the method returns the original URL without modification.
+  ///
+  /// - [ignoreInDebugMode]: If `true`, the conversion to HTTPS is ignored when the app is in debug mode. Defaults to `true`.
+  ///
+  /// Returns:
+  /// - A `String` URL with 'http:' replaced by 'https:', or the original URL if no conversion is applied.
+  String toHttps({bool ignoreInDebugMode = true}) {
+    if (kDebugMode && ignoreInDebugMode) return this;
     return (startsWith('http:')) ? 'https${substring(4)}' : this;
   }
 
