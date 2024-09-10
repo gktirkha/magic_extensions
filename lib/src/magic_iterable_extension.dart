@@ -98,6 +98,16 @@ extension MagicIterableExtension<E> on Iterable<E?> {
         element?.magicInt(defaultValue: defaultValue) ?? defaultValue).toList();
   }
 
+  /// Returns a list of elements converted to integers by the [magicInt] method.
+  ///
+  /// Uses the [magicDouble] method to convert each element to an integer.
+  /// The [defaultValue] parameter is used for conversion if the element is `null`.
+  List<double> magicToDoubles({double defaultValue = 0}) {
+    return map((element) =>
+            element?.magicDouble(defaultValue: defaultValue) ?? defaultValue)
+        .toList();
+  }
+
   /// Returns a list of elements converted to booleans by the [magicBool] method.
   ///
   /// Uses the [magicBool] method to convert each element to a boolean.
