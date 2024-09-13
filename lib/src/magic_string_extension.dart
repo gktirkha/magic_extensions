@@ -77,7 +77,7 @@ extension MagicNullStringExtension on String? {
   /// [topMargin], [bottomMargin], [leftMargin], [rightMargin] specify margins for the [Text].
   /// [marginIfNull] determines if margin should be applied if the [String] is null.
   /// [showPlaceholderIfEmpty] determines if the placeholder should be shown if the [String] is empty.
-  /// [ipsumInDebug] determines if "ipsum" should be displayed in debug mode when the [String] is null.
+  /// [ipsumInDebug] determines if "Lorem Ipsum" should be displayed in debug mode when the [String] is null.
   Widget toText({
     String? placeholder,
     TextStyle? style,
@@ -108,7 +108,7 @@ extension MagicNullStringExtension on String? {
     String? textToShow = this ?? placeholder;
     if (kDebugMode &&
         (textToShow == null || textToShow.isEmpty) &&
-        ipsumInDebug) textToShow = 'ipsum';
+        ipsumInDebug) textToShow = 'Lorem Ipsum';
 
     if ((textToShow == null || textToShow.isEmpty) && !showPlaceholderIfEmpty) {
       return Container(
