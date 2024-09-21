@@ -13,8 +13,7 @@ To use magic_extensions in your Flutter project, add the following dependency to
 
 ```yaml
 dependencies:
-  magic_extensions:
-    git: https://github.com/gktirkha/magic_extensions
+  magic_extensions: ^latest_version
 ```
 
 > This Documentation Is Outdated and Does Not Contains Explanation Of All the methods and extensions please refer to [Dart Doc Version](https://gktirkha.github.io/flutter_packages_doc/magic_extensions)
