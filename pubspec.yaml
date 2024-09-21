@@ -1,5 +1,5 @@
 name: magic_extensions
-description: "A new Flutter package project."
+description: A library that provides a collection of extension methods for common Dart and Flutter types. like int string dateTime And more
 version: 0.0.1
 homepage: https://github.com/gktirkha/magic_extensions
 repository: https://github.com/gktirkha/magic_extensions
@@ -17,5 +17,3 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^3.0.0
-
-flutter:

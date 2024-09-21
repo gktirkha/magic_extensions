@@ -50,4 +50,22 @@ extension MagicWidgetExtension on Widget {
         key: key,
         child: this,
       );
+
+  /// Wraps the widget in an [Center] widget.
+  ///
+  /// The [key] parameter is optional and can be used to provide a
+  /// [Key] for the [Center] widget.
+  ///
+  /// Example usage:
+  /// ```dart
+  /// Container().center();
+  /// ```
+  Widget center({
+    int flex = 1,
+    Key? key,
+  }) =>
+      Center(
+        key: key,
+        child: this,
+      );
 }
