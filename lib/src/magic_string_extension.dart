@@ -183,6 +183,22 @@ extension MagicNullStringExtension on String? {
   /// Returns a list of substrings obtained by splitting the [String] by commas.
   List<String> toSeparatedList({String delimiter = ','}) =>
       validString().split(delimiter);
+
+  /// Converts the current string representation of a color to a [Color] object.
+  ///
+  /// If the string is null or cannot be parsed, it returns the provided
+  /// [placeholder] color (default is [Colors.white]).
+  ///
+  /// Parameters:
+  /// - [placeholder]: The color to return if parsing fails. Defaults to white.
+  ///
+  /// Returns:
+  /// - A [Color] object corresponding to the parsed value of the string,
+  ///   or the placeholder color if the string is null or invalid.
+  Color toColor({Color placeholder = Colors.white}) {
+    if (this == null) return placeholder;
+    return Color(int.tryParse(this!) ?? placeholder.value);
+  }
 }
 
 /// Extension methods for non-nullable [String] objects.
