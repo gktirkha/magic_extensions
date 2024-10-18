@@ -10,6 +10,7 @@
 /// These extensions offer additional utility functions and convenience methods for working with these types.
 library magic_extensions;
 
+export './src/magic_color_extension.dart';
 export './src/magic_date_extension.dart';
 export './src/magic_duration_extension.dart';
 export './src/magic_int_extension.dart';
