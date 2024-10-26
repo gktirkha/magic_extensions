@@ -16,7 +16,7 @@ extension MagicNullStringExtension on String? {
   ///   - `"Lorem Ipsum"` when in debug mode and `nonEmptyInDebug` is `true`.
   ///   - The provided [defaultValue] in release mode or when `nonEmptyInDebug` is `false`.
   /// - If the string is not `null` or empty, the trimmed version of the string is returned.
-  String validString({String defaultValue = '', bool nonEmptyInDebug = true}) {
+  String validString({String defaultValue = '', bool nonEmptyInDebug = false}) {
     if (this == null || this!.trim().isEmpty) {
       return (nonEmptyInDebug && kDebugMode)
           ? 'Lorem Ipsum'
@@ -101,7 +101,7 @@ extension MagicNullStringExtension on String? {
     double rightMargin = 0.0,
     bool marginIfNull = false,
     bool showPlaceholderIfEmpty = false,
-    bool ipsumInDebug = true,
+    bool ipsumInDebug = false,
   }) {
     final EdgeInsets margin =
         EdgeInsets.fromLTRB(leftMargin, topMargin, rightMargin, bottomMargin);
@@ -283,7 +283,7 @@ extension MagicStringExtension on String {
   ///
   /// Returns:
   /// - A `String` URL with 'http:' replaced by 'https:', or the original URL if no conversion is applied.
-  String toHttps({bool ignoreInDebugMode = true}) {
+  String toHttps({bool ignoreInDebugMode = false}) {
     if (kDebugMode && ignoreInDebugMode) return this;
     return (startsWith('http:')) ? 'https${substring(4)}' : this;
   }

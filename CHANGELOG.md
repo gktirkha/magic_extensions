@@ -5,4 +5,4 @@ Readme Changes
 ## 0.0.3
 Added Color Extension to convert hex code to color and color to hex code
 ## 0.0.4
-Added debugContainer and debugBorder
+Added debugContainer and debugBorder and set default empty in debug to false

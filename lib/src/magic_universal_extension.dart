@@ -226,7 +226,7 @@ extension MagicUniversalExtension<T> on T? {
   ///
   /// - [defaultValue]: The value to return if the conversion fails or the value is `null`.
   /// - [nonEmptyInDebug]: If `true`, returns 'Lorem Ipsum' when the `defaultValue` is empty and the app is in debug mode.
-  String magicString({String defaultValue = '', bool nonEmptyInDebug = true}) {
+  String magicString({String defaultValue = '', bool nonEmptyInDebug = false}) {
     if (isNull) {
       return defaultValue.validString(
         defaultValue: defaultValue,
