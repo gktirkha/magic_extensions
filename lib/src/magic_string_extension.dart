@@ -59,6 +59,32 @@ extension MagicNullStringExtension on String? {
   /// Returns an empty string if the [String] is null or empty.
   String withLineBreak() => (this == null || this!.isEmpty) ? '' : '$this\n';
 
+  /// An extension on `String?` to parse a string into a `DateTime?`
+  /// using a custom date format.
+  ///
+  /// Example usage:
+  /// ```dart
+  /// String? dateString = "10 Aug 2024 08:00 AM";
+  /// String dateFormat = "d MMM yyyy hh:mm a";/// An extension on `String?` to parse a string into a `DateTime?`
+/// using a custom date format.
+///
+/// Example usage:
+/// ```dart
+/// String? dateString = "10 Aug 2024 08:00 AM";
+/// String dateFormat = "d MMM yyyy hh:mm a";
+/// DateTime? parsedDate = dateString.parseDate(dateFormat);
+/// print(parsedDate); // Output: 2024-08-10 08:00:00.000Z
+/// ```
+///
+/// If the string is null or the format is invalid, this method returns null.
+  /// DateTime? parsedDate = dateString.parseDate(dateFormat);
+  /// print(parsedDate); // Output: 2024-08-10 08:00:00.000Z
+  /// ```
+  ///
+  /// If the string is null or the format is invalid, this method returns null.
+  DateTime? parseDate(String dateFormat) =>
+      this == null ? null : DateFormat(dateFormat).tryParse(this!);
+
   /// Replaces the [String] with a [placeholder] if it is null or empty.
   ///
   /// [placeholder] is returned if the [String] is null or empty.
