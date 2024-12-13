@@ -66,17 +66,17 @@ extension MagicNullStringExtension on String? {
   /// ```dart
   /// String? dateString = "10 Aug 2024 08:00 AM";
   /// String dateFormat = "d MMM yyyy hh:mm a";/// An extension on `String?` to parse a string into a `DateTime?`
-/// using a custom date format.
-///
-/// Example usage:
-/// ```dart
-/// String? dateString = "10 Aug 2024 08:00 AM";
-/// String dateFormat = "d MMM yyyy hh:mm a";
-/// DateTime? parsedDate = dateString.parseDate(dateFormat);
-/// print(parsedDate); // Output: 2024-08-10 08:00:00.000Z
-/// ```
-///
-/// If the string is null or the format is invalid, this method returns null.
+  /// using a custom date format.
+  ///
+  /// Example usage:
+  /// ```dart
+  /// String? dateString = "10 Aug 2024 08:00 AM";
+  /// String dateFormat = "d MMM yyyy hh:mm a";
+  /// DateTime? parsedDate = dateString.parseDate(dateFormat);
+  /// print(parsedDate); // Output: 2024-08-10 08:00:00.000Z
+  /// ```
+  ///
+  /// If the string is null or the format is invalid, this method returns null.
   /// DateTime? parsedDate = dateString.parseDate(dateFormat);
   /// print(parsedDate); // Output: 2024-08-10 08:00:00.000Z
   /// ```
