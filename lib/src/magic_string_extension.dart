@@ -2,8 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart' hide TextDirection;
 
-import 'magic_date_extension.dart';
-import 'magic_status_colors.dart';
+import '../magic_extensions.dart';
 
 /// Extension methods for handling nullable [String] objects.
 extension MagicNullStringExtension on String? {
@@ -134,7 +133,9 @@ extension MagicNullStringExtension on String? {
     String? textToShow = this ?? placeholder;
     if (kDebugMode &&
         (textToShow == null || textToShow.isEmpty) &&
-        ipsumInDebug) textToShow = 'Lorem Ipsum';
+        ipsumInDebug) {
+      textToShow = 'Lorem Ipsum';
+    }
 
     if ((textToShow == null || textToShow.isEmpty) && !showPlaceholderIfEmpty) {
       return Container(
@@ -223,7 +224,7 @@ extension MagicNullStringExtension on String? {
   ///   or the placeholder color if the string is null or invalid.
   Color toColor({Color placeholder = Colors.white}) {
     if (this == null) return placeholder;
-    return Color(int.tryParse(this!) ?? placeholder.value);
+    return Color(int.tryParse(this!) ?? placeholder.toColorInt);
   }
 }
 
