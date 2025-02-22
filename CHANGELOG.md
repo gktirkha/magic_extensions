@@ -10,3 +10,5 @@ Added debugContainer and debugBorder and set default empty in debug to false
 Added Date Parsing from string
 ## 0.0.6
 Removed Deprecated Color Method
+## 0.0.7
+License Update
