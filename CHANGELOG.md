@@ -12,3 +12,5 @@ Added Date Parsing from string
 Removed Deprecated Color Method
 ## 0.0.7
 License Update
+## 0.0.8
+License Update
