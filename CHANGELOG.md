@@ -14,3 +14,7 @@ Removed Deprecated Color Method
 License Update
 ## 0.0.8
 License Update
+## 0.0.9
+Refactor MagicUniversalExtension: streamline logging methods and improve type handling in conversion functions
+## 0.0.10
+added magic get for iterables
