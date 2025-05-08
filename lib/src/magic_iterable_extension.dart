@@ -121,12 +121,10 @@ extension MagicIterableExtension<E> on Iterable<E?> {
   /// Safely gets the element at the given index.
   /// Returns null if the index is out of range.
   E? magicGet(int index) {
-    if (index < 0) return null;
-    var i = 0;
-    for (final e in this) {
-      if (i == index) return e;
-      i++;
+    try {
+      return elementAtOrNull(index);
+    } catch (e) {
+      return null;
     }
-    return null;
   }
 }
