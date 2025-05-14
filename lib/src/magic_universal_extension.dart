@@ -3,7 +3,7 @@ import 'dart:developer';
 
 import 'magic_string_extension.dart';
 
-extension MagicUniversalExtension<T> on T? {
+extension MagicUniversalExtension on Object? {
   /// Checks if the value is `null`.
   bool get isNull => this == null;
 
@@ -38,8 +38,9 @@ extension MagicUniversalExtension<T> on T? {
     if (this is int) return (this as int).toDouble();
     if (this is String) return double.tryParse(this as String) ?? defaultValue;
     if (this is bool) return (this as bool) ? 1 : 0;
-    if (this is DateTime)
+    if (this is DateTime) {
       return (this as DateTime).millisecondsSinceEpoch.toDouble();
+    }
 
     if (this is Iterable) {
       return _sumNumericValues(this as Iterable);
