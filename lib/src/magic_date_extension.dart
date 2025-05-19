@@ -51,4 +51,44 @@ extension MagicDateExtension on DateTime? {
         DateTime(otherDate.year, otherDate.month, otherDate.day);
     return thisDate.isAfter(otherDateOnly);
   }
+
+  /// Returns a [DateTime] object with only the year, month, and day components.
+  ///
+  /// If the current instance is `null`, returns `null`.
+  DateTime? get dateOnly {
+    if (this == null) return null;
+    return DateTime(this!.year, this!.month, this!.day);
+  }
+
+  /// Returns a [DateTime] object with only the hour, minute, and second components.
+  ///
+  /// The year, month, and day are set to zero. If the current instance is `null`, returns `null`.
+  DateTime? get timeOnly {
+    if (this == null) return null;
+    return DateTime(
+      0,
+      0,
+      0,
+      this!.hour,
+      this!.minute,
+      this!.second,
+    );
+  }
+
+  /// Returns a [DateTime] object with full time precision including milliseconds and microseconds.
+  ///
+  /// The year, month, and day are set to zero. If the current instance is `null`, returns `null`.
+  DateTime? get fullTime {
+    if (this == null) return null;
+    return DateTime(
+      0,
+      0,
+      0,
+      this!.hour,
+      this!.minute,
+      this!.second,
+      this!.millisecond,
+      this!.microsecond,
+    );
+  }
 }
