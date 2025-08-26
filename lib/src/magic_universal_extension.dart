@@ -3,7 +3,7 @@ import 'dart:developer';
 
 import 'magic_string_extension.dart';
 
-extension MagicUniversalExtension on Object? {
+extension MagicUniversalExtension on dynamic {
   /// Checks if the value is `null`.
   bool get isNull => this == null;
 

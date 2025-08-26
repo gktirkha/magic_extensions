@@ -167,21 +167,6 @@ extension MagicNullStringExtension on String? {
     );
   }
 
-  /// Formats the nullable [String] as a date string using the specified format.
-  ///
-  /// Converts the current [String] to a [DateTime] object, then formats it according to the [format] string.
-  /// If the [String] is null or cannot be parsed into a [DateTime], the [placeholder] is returned.
-  ///
-  /// [format] specifies the date format. Defaults to 'dd MMM, yyyy'.
-  /// [placeholder] is returned if the [String] is null or cannot be parsed into a [DateTime]. Defaults to an empty string.
-  ///
-  /// Returns the formatted date string or [placeholder] if the [String] is null or invalid.
-  String formatAsDate(
-          {String format = 'dd MMM, yyyy', String placeholder = ''}) =>
-      (this == null || toDateTime == null)
-          ? placeholder
-          : toDateTime!.format(format: format, placeholder: placeholder);
-
   /// Extracts the initials from the [String].
   ///
   /// The initials are derived from the first two words of the [String], if available.
@@ -276,27 +261,6 @@ extension MagicStringExtension on String {
     } catch (e) {
       return null;
     }
-  }
-
-  /// Converts the [String] representing time to a formatted time string.
-  ///
-  /// Converts the [String] to a [TimeOfDay] object and formats it according to the provided [format].
-  ///
-  /// [format] specifies the format of the time string. Defaults to 'hh:mm a'.
-  /// Returns an empty string if the [String] cannot be converted to a [TimeOfDay].
-  String toTimeString({String format = 'hh:mm a'}) {
-    if (toTime == null) return '';
-
-    final now = DateTime.now();
-    final dateTime = DateTime(
-      now.year,
-      now.month,
-      now.day,
-      toTime!.hour,
-      toTime!.minute,
-    );
-
-    return DateFormat(format).format(dateTime);
   }
 
   /// Converts a `String` URL from HTTP to HTTPS if it starts with 'http:'.
