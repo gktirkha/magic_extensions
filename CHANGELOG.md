@@ -20,3 +20,5 @@ Refactor MagicUniversalExtension: streamline logging methods and improve type ha
 added magic get for iterables
 ## 0.1.0
 Updated Readme
+## 0.1.1
+Updated Readme
