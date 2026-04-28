@@ -18,3 +18,5 @@ License Update
 Refactor MagicUniversalExtension: streamline logging methods and improve type handling in conversion functions
 ## 0.0.10
 added magic get for iterables
+## 0.1.0
+Updated Readme

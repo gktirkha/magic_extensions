@@ -16,8 +16,6 @@ dependencies:
   magic_extensions: ^latest_version
 ```
 
-> This Documentation Is Outdated and Does Not Contains Explanation Of All the methods and extensions please refer to [API reference](https://gktirkha.github.io/flutter_packages_doc/magic_extensions)
-
 # Usage
 ## DateTime Extensions
 ```dart
